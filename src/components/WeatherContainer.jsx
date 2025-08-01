@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useGetWeatherByCityQuery } from "../features/weather/weatherApi"; // adjust based on your API slice
+import { useGetWeatherByCityQuery } from "../features/weather/weatherApi";
 import WeatherLayout from "./WeatherLayout";
 
 const WeatherContainer = () => {

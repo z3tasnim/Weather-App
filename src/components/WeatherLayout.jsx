@@ -3,15 +3,25 @@ import CurrentWeather from "./CurrentWeather";
 import HourlyForecast from "./HourlyForecast";
 import ForecastDays from "./ForecastDays";
 import SearchBar from "./SearchBar";
-import useBackgroundClass from "../hooks/useBackgroundClass";
+import useBackgroundImage from "../hooks/useBackgroundImage";
 
 const WeatherLayout = ({ data, onSearch }) => {
   const condition = data?.current?.condition?.text;
-  const bgClass = useBackgroundClass(condition);
+  const backgroundImage = useBackgroundImage(condition);
 
   return (
-    <div className={`min-h-screen w-full p-6 ${bgClass}`}>
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div
+      className="relative min-h-screen w-full p-6"
+      style={{
+        backgroundImage,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        filter: "brightness(85%)",
+      }}
+    >
+      <div className="absolute inset-0 bg-black bg-opacity-40 z-0" />
+
+      <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Left section */}
         <div>
           <CurrentWeather
